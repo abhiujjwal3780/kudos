@@ -8,13 +8,13 @@ class OrganizationAdmin(admin.ModelAdmin):
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'organization')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'is_active', 'is_staff',  'is_superuser', 'manager','organization')
     search_fields = ('username', 'email')
     list_filter = ('is_active', 'is_staff', 'organization')    
 
 @admin.register(Kudos)
 class KudosAdmin(admin.ModelAdmin):
-    list_display = ('sender', 'receiver', 'level', 'behaviour', 'points', 'organization', 'created_at')
+    list_display = ('sender', 'receiver', 'level', 'behaviour', 'points', 'organization', 'kudos_assignment', 'created_at')
     search_fields = ('sender__username', 'receiver__username', 'level', 'behaviour')
     list_filter = ('organization', 'level', 'behaviour')     
 
