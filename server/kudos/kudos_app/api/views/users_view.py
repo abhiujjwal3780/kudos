@@ -2,6 +2,7 @@ from rest_framework import generics, viewsets
 from kudos_app.models import User, Organization, Kudos
 from kudos_app.api.serializers.users_serializer import UserSerializer
 from kudos_app.api.serializers.kudos_serializer import KudosSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView as SimpleJWTTokenObtainPairView, TokenRefreshView as SimpleJWTTokenRefreshView
 
 class UserListCreateView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
