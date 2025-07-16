@@ -3,6 +3,9 @@ from kudos_app.models import User, Organization, Kudos
 from kudos_app.api.serializers.users_serializer import UserSerializer
 from kudos_app.api.serializers.kudos_serializer import KudosSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView as SimpleJWTTokenObtainPairView, TokenRefreshView as SimpleJWTTokenRefreshView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 class UserListCreateView(generics.ListCreateAPIView):
     serializer_class = UserSerializer
@@ -39,3 +42,10 @@ class UserKudosGivenView(generics.ListAPIView):
         org_id = self.kwargs['org_id']
         user_id = self.kwargs['user_id']
         return Kudos.objects.filter(organization_id=org_id, sender_id=user_id)
+
+class MeView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data)

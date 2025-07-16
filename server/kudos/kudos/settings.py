@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',  # Added for Django REST Framework
     'kudos_app',  # Assuming kudos_app is the name of your app
+    'corsheaders',  # Add this line
 ]
 
 MIDDLEWARE = [
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Add this line at the top
 ]
 
 ROOT_URLCONF = 'kudos.urls'
@@ -136,3 +138,5 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),   # Access token expires in 30 minutes
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),      # Refresh token expires in 1 day
 }
+
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins (for development only)

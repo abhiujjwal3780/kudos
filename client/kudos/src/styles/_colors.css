@@ -1,0 +1,38 @@
+:root{
+    --nav-click-color: #f0f0f0;
+    --nav-hover-color: #e0e0e0;
+    --nav-active-color: #d0d0d0;
+    --nav-text-color: #333333;
+    --nav-text-hover-color: #000000;
+    --nav-text-active-color: #000000;
+    --border-color: #cccccc;
+    --black-color: #000000;
+    --white-color: #ffffff;
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --grey-color: #6c757d;
+    --dark-color: #343a40;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --link-active-color: #004085;
+    --background-color: #f0f0f0;
+    --text-color: #333333;
+    --header-background-color: #ffffff;
+    --header-text-color: #333333;
+    --footer-background-color: #f8f9fa;
+    --footer-text-color: #6c757d;   
+    --button-primary-background-color: #007bff; 
+    --button-primary-text-color: #ffffff;
+    --button-secondary-background-color: #6c757d;
+    --button-secondary-text-color: #ffffff;
+    --button-success-background-color: #28a745;
+    --button-success-text-color: #ffffff;
+    --button-danger-background-color: #dc3545;
+    --button-danger-text-color: #ffffff;
+
+}
