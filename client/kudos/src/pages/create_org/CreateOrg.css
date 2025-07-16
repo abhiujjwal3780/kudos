@@ -1,0 +1,91 @@
+/* Use the same styles as Login.css */
+.login-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 2rem 2.5rem 2rem 2.5rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 6px rgba(25, 118, 210, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container h1 {
+    margin-bottom: 2rem;
+    color: #1976d2;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1976d2;
+}
+
+.btn.btn-primary {
+    padding: 0.8rem 0;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn.btn-primary:disabled {
+    background: #90caf9;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #d32f2f;
+    background: #fff0f0;
+    border: 1px solid #ffcdd2;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.success-message {
+    color: #388e3c;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-align: center;
+}

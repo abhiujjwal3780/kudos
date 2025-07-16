@@ -1,0 +1,10 @@
+:root{
+    --primary-text-font: normal normal 666 1rem/1.5rem 'Open Sans'
+    --secondary-text-font: normal normal 400 0.87rem/1.1.375rem 'Open Sans'
+    --secondary-bold-text-font: normal normal 600 0.87rem/1.1.375rem 'Open Sans'
+    --primary-heading-font: normal normal 700 2.25rem/2.5rem 'Open Sans'
+    --secondary-heading-font: normal normal 600 1.5rem/1.75rem 'Open Sans'
+    --small-text-font: normal normal 400 0.75rem/1rem 'Open Sans'
+    --small-bold-text-font: normal normal 600 0.75rem/1rem 'Open Sans'
+    --primary-button-font: normal normal 600 0.875rem/1.25rem 'Open Sans'
+}

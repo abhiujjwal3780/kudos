@@ -1,0 +1,33 @@
+.dashboard-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3f0ff 0%, #fceabb 100%);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-top {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-left {
+    flex: 2;
+}
+
+.dashboard-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dashboard-bottom {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 2rem;
+}

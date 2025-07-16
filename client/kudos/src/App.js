@@ -1,14 +1,18 @@
 import './App.css';
 import { UserContextProvider } from './store/UserContext';
-import {BrowserRouter} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
+import AppRoutes from './Router';
+import PageHeader from './components/page_header/PageHeader';
+import Footer from './components/footer/Footer';
 function App() {
   return (
     <div className="App">
       <UserContextProvider >
-        <BrowserRouter>
-          {/* Add your routes here */}  
-          Kudos App
-          </BrowserRouter>
+          <Router>
+            <PageHeader /> 
+            <AppRoutes />
+            <Footer />
+          </Router>
       </UserContextProvider>  
     </div>
   );

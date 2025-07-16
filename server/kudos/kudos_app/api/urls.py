@@ -1,6 +1,6 @@
 from django.urls import path, include
 from kudos_app.api.views.users_view import (
-    UserListCreateView, UserDetailView, UserKudosReceivedView, UserKudosGivenView
+    UserListCreateView, UserDetailView, UserKudosReceivedView, UserKudosGivenView, MeView
 )
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from kudos_app.api.views.organizations_view import OrganizationListCreateView, OrganizationDetailView
@@ -32,4 +32,7 @@ urlpatterns = [
     # Kudos assignment endpoints (nested under organization)
     path('organizations/<int:org_id>/kudos-assignments/', KudosAssignmentListCreateView.as_view(), name='kudos-assignment-list-create'),
     path('organizations/<int:org_id>/kudos-assignments/<int:assignment_id>/', KudosAssignmentDetailView.as_view(), name='kudos-assignment-detail'),
+
+    # User self-view endpoint
+    path('api/me/', MeView.as_view(), name='me'),
 ]
