@@ -40,8 +40,8 @@ const PageHeader = () => {
                 </Link>
                 {user ? (
                     <>
-                        <Link to={paths.dashboard}>
-                            <div className={`text-nav-link${isActive(paths.dashboard) ? ' active' : ''}`}>Dashboard</div>
+                        <Link to={paths.kudos}>
+                            <div className={`text-nav-link${isActive(paths.kudos) ? ' active' : ''}`}>Kudos</div>
                         </Link>
                         
                         <Link to={paths.create_user}>

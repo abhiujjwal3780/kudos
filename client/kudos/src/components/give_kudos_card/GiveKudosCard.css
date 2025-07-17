@@ -1,0 +1,55 @@
+.give-kudos-card {
+    background: linear-gradient(120deg, #fceabb 0%, #e3f0ff 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top:1.75rem;
+}
+
+.give-kudos-card:hover {
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    transform: translateY(-4px) scale(1.03);
+}
+
+.give-kudos-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.give-kudos-title {
+    color: #1976d2;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.give-kudos-text {
+    color: #333;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.give-kudos-btn {
+    background: linear-gradient(90deg, #ff9800 0%, #1976d2 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 12px rgba(25, 118, 210, 0.13);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.give-kudos-btn:hover {
+    background: linear-gradient(90deg, #1976d2 0%, #ff9800 100%);
+    transform: scale(1.05);
+}

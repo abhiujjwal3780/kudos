@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+This is the React client for the Kudos application, which allows users to give, view, and manage kudos within their organization.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+- **Dashboard:** Overview of latest kudos, assignments, and quick actions.
+- **Give Kudos:** Send kudos to your peers with a message, level, and points.
+- **View Kudos:** See all kudos in your organization, filter and search.
+- **My Kudos:** View kudos you have received.
+- **Kudos Assignments:** Assign kudos tasks to users for a specific period.
 
-In the project directory, you can run:
+- **Responsive UI:** Modern, mobile-friendly design.
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (v16 or above recommended)
+- npm or yarn
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clone the repository:
+    ```sh
 
-### `npm run build`
+    cd kudos/client/kudos
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+    ```sh
+    npm install
+    # or
+    yarn install
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. in constant file update according to your backend url
+    ```
+    REACT_APP_API_URL=http://localhost:8000
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the App
 
-### `npm run eject`
+```sh
+npm start
+# or
+yarn start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app will run at [http://localhost:3000](http://localhost:3000).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+  components/
+    common/           # Reusable components (tables, navbar, etc.)
+    give_kudos_card/  # Give Kudos card component
+    create_kudos/     # Kudos creation form
+    create_kudos_assignment/ # Kudos assignment form
+    kudos_card/       # Kudos display card
+    kudos_assignment/ # Assignment info card
+  pages/
+    dashboard/        # Dashboard page
+    kudos/            # Main kudos navigation page
+    show_all_kudos/   # All kudos table and filter
+  store/              # Context and state management
+  hooks/              # Custom hooks (API, debounce, etc.)
+  config.js           # Navigation and config
+  constants.js        # API endpoints and constants
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Customization
 
-## Learn More
+- **API Endpoints:** Update `src/constants.js` if your backend endpoints change.
+- **Navigation:** Edit `src/config.js` for nav items.
+- **Styling:** All components use modular CSS files for easy customization.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Useful Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm run lint` — Lint your code.
+- `npm run build` — Build for production.
 
-### Code Splitting
+## Feedback & Contributions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Feel free to open issues or pull requests for improvements!
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Enjoy spreading positivity with Kudos!**
