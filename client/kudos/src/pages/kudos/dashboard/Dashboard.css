@@ -30,4 +30,29 @@
     width: 100%;
     max-width: 900px;
     margin-top: 2rem;
+    border: 2px solid #1976d2;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #fff;
+}
+
+/* CSS */
+.kudos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+.no-kudos-msg {
+    color: #757575;
+    font-size: 1.2rem;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1976d2;
+    margin-bottom: 1rem;
 }

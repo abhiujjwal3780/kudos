@@ -1,0 +1,96 @@
+.kudos-card {
+    background: linear-gradient(120deg, #fceabb 0%, #e3f0ff 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10);
+    padding: 1.5rem 1.7rem 1.2rem 1.7rem;
+    margin: 1rem 0;
+    max-width: 400px;
+    min-width: 280px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.kudos-card:hover {
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    transform: translateY(-4px) scale(1.02);
+}
+
+.kudos-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.kudos-sender {
+    font-weight: 600;
+    color: #1976d2;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.kudos-points .points-badge {
+    background: #ff9800;
+    color: #fff;
+    border-radius: 12px;
+    padding: 0.3rem 0.8rem;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px #ffe0b2;
+}
+
+.kudos-card-body {
+    margin-top: 0.5rem;
+}
+
+.kudos-receiver {
+    color: #388e3c;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.kudos-level-behaviour {
+    color: #6d4c41;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.kudos-level-behaviour .dot-sep {
+    font-size: 1.2rem;
+    color: #bdbdbd;
+}
+
+.kudos-message {
+    font-size: 1.1rem;
+    color: #333;
+    background: #fffde7;
+    border-left: 4px solid #ff9800;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+.kudos-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.92rem;
+    color: #757575;
+    margin-top: 0.7rem;
+}
+
+.kudos-assignment {
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 8px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.92rem;
+    margin-left: 0.7rem;
+}

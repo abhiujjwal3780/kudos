@@ -1,0 +1,47 @@
+.kudos-filter-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+}
+.kudos-filter-form input {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #bdbdbd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+.kudos-filter-form .btn-primary {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;   /* Reduce horizontal padding */
+    font-weight: 600;
+    font-size: 1rem;        /* Make font size consistent with inputs */
+    cursor: pointer;
+    transition: background 0.2s;
+    height: 2.5rem;         /* Match input height if needed */
+    align-self: flex-end;   /* Align button with inputs if using flex */
+    min-width: 12rem;  
+    max-width: 12rem;     /* Optional: set a minimum width */
+}
+.kudos-filter-form .btn-primary:hover {
+    background: #1565c0;
+}
+.kudos-filter-form .btn-secondary {
+    background: #e0e0e0;
+    color: #1976d2;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    height: 2.5rem;
+    min-width: 100px;
+    margin-left: 0.5rem;
+}
+.kudos-filter-form .btn-secondary:hover {
+    background: #bdbdbd;
+}

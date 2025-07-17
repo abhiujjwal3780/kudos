@@ -5,7 +5,6 @@ export const paths = {
     logot:'/logout',
     create_org:'/create-org',
     create_user:'/create-user',
-    dashboard:'/dashboard',
     kudos:'/kudos',
     users:'/users',
     error:'/error',
@@ -15,11 +14,11 @@ export const paths = {
 }
 
 export const subPath = {
-    organization:'/organizations/:orgId',
-    user:'/organizations/:orgId/users/:userId',
-    kudos:'/organizations/:orgId/kudos/:kudosId',
-    userProfile:'/users/:userId',
-    organizationProfile:'/organizations/:orgId/profile',
+    kudos_dashboard:`${paths.kudos}/dashboard`,
+    kudos_create:`${paths.kudos}/create`,
+    kudos_all:`${paths.kudos}/all-kudos`,
+    kudos_my:`${paths.kudos}/my-kudos`, 
+    assign_kudos:`${paths.kudos}/assign-kudos`,
 }
 
 export const ALL_ROLES = {

@@ -7,7 +7,7 @@ const AppRoutes = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <Routes>
       {menuItems.map(item => (
-        <Route key={item.key} path={item.path} element={item.element} />
+        <Route key={item.key} path={`${item.path}/*`} element={item.element} />
       ))}
         <Route
             path="*"

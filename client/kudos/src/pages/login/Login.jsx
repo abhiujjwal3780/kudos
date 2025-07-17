@@ -4,6 +4,7 @@ import './Login.css';
 import { API_ENDPOINTS } from "../../constants";
 import useApiQuery from "../../hooks/useApiQuery";
 import { UserContext } from "../../store/UserContext";
+import { paths } from "../../utils";
 
 const Login = () => {
     const [form, setForm] = useState({ username: "", password: "" });
@@ -40,7 +41,7 @@ const Login = () => {
 
             if (userData) {
                 setUser(userData); // 3. Save to context
-                navigate("/dashboard"); // 4. Redirect
+                navigate(paths.kudos); // 4. Redirect
             } else {
                 setError(userError?.detail || "Failed to fetch user details");
             }

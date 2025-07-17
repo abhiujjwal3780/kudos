@@ -1,0 +1,76 @@
+.kudos-assign-info-card {
+    background: linear-gradient(120deg, #e3f0ff 0%, #fceabb 100%);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(25, 118, 210, 0.10);
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    max-width: 600px;
+    width: 100%;
+}
+
+.kudos-assign-info-card h2 {
+    color: #1976d2;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+}
+
+.period-label {
+    color: #ff9800;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.no-assignments {
+    color: #757575;
+    font-size: 1.1rem;
+    padding: 1.2rem 0;
+    text-align: center;
+}
+
+.assignments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+
+.assignment-row {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #e3f2fd;
+    padding: 1rem 1.2rem;
+    gap: 1.2rem;
+    transition: box-shadow 0.2s;
+}
+
+.assignment-row:hover {
+    box-shadow: 0 6px 18px #bbdefb;
+}
+
+.assignment-status {
+    min-width: 90px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    margin-right: 0.7rem;
+    box-shadow: 0 1px 4px #ffe0b2;
+}
+
+.assignment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.assignment-label {
+    color: #1976d2;
+    font-weight: 600;
+    margin-right: 0.3rem;
+}
