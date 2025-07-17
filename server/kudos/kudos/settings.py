@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'kudos_app',  # Assuming kudos_app is the name of your app
     'corsheaders',  # Add this line
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [

@@ -48,6 +48,9 @@ This is the Django backend for the Kudos application. It provides REST APIs for 
     ```sh
     python manage.py runserver
     ```
+7. **Swagger UI: **
+    http://localhost:8000/swagger/
+    Redoc: http://localhost:8000/redoc/
 
 ## API Overview
 
