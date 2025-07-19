@@ -20,6 +20,7 @@ from django.urls import path, re_path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.http import JsonResponse
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -30,6 +31,15 @@ schema_view = get_schema_view(
    public=True,
    permission_classes=(permissions.AllowAny,),
 )
+
+def custom_404(request, exception):
+    return JsonResponse({
+        "success": False,
+        "message": "Resource not found",
+        "errors": {"detail": "The requested endpoint does not exist."}
+    }, status=404)
+
+handler404 = 'kudos.urls.custom_404'  # Update path as needed
 
 urlpatterns = [
     path('admin/', admin.site.urls),

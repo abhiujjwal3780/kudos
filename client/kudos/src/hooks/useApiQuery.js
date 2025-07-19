@@ -18,17 +18,14 @@ const useApiQuery = () => {
     setError(null);
     setData(null);
 
-    // Build query string for GET params
     let fetchUrl = url;
     if (params && typeof params === 'object') {
       const query = new URLSearchParams(params).toString();
       fetchUrl += (fetchUrl.includes('?') ? '&' : '?') + query;
     }
 
-    // Set up abort controller
     abortControllerRef.current = new AbortController();
 
-    // Set up headers
     const fetchHeaders = {
       'Content-Type': 'application/json',
       ...headers,
@@ -45,7 +42,6 @@ const useApiQuery = () => {
         signal: abortControllerRef.current.signal,
       });
 
-      // Handle non-JSON responses
       const contentType = response.headers.get('content-type');
       let responseData;
       if (contentType && contentType.includes('application/json')) {
@@ -54,14 +50,27 @@ const useApiQuery = () => {
         responseData = await response.text();
       }
 
-      if (!response.ok) {
-        setError(responseData || response.statusText);
-        setData(null);
+      // Handle new response structure
+      if (typeof responseData === 'object' && responseData !== null) {
+        if (responseData.success) {
+          setData(responseData.data);
+          setError(null);
+          return { data: responseData.data, error: null, message: responseData.message };
+        } else {
+          setError(responseData.errors || responseData.message || response.statusText);
+          setData(null);
+          return { data: null, error: responseData.errors || responseData.message || response.statusText, message: responseData.message };
+        }
       } else {
-        setData(responseData);
-        setError(null);
+        if (!response.ok) {
+          setError(responseData || response.statusText);
+          setData(null);
+        } else {
+          setData(responseData);
+          setError(null);
+        }
+        return { data: responseData, error: !response.ok ? responseData : null };
       }
-      return { data: responseData, error: !response.ok ? responseData : null };
     } catch (err) {
       if (err.name === 'AbortError') {
         setError('Request was aborted');
@@ -75,7 +84,6 @@ const useApiQuery = () => {
     }
   }, []);
 
-  // Abort the current request if needed
   const abort = () => {
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
