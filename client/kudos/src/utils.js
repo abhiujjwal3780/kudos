@@ -17,7 +17,6 @@ export const subPath = {
     kudos_dashboard:`${paths.kudos}/dashboard`,
     kudos_create:`${paths.kudos}/create`,
     kudos_all:`${paths.kudos}/all-kudos`,
-    kudos_my:`${paths.kudos}/my-kudos`, 
     assign_kudos:`${paths.kudos}/assign-kudos`,
 }
 

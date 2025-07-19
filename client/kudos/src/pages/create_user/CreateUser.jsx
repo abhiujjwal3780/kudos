@@ -39,6 +39,7 @@ const CreateUser = () => {
         if (
             !form.username.trim() ||
             !form.email.trim() ||
+            !form.first_name.trim() ||
             !form.password.trim() ||
             !form.organization
         ) {
@@ -97,7 +98,7 @@ const CreateUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="first_name">First Name</label>
+                    <label htmlFor="first_name">First Name<span style={{color: "#d32f2f"}}></span></label>
                     <input
                         type="text"
                         id="first_name"
