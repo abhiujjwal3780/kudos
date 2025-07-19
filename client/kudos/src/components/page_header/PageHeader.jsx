@@ -38,15 +38,16 @@ const PageHeader = () => {
                 <Link to={paths.create_org}>
                     <div className={`text-nav-link${isActive(paths.create_org) ? ' active' : ''}`}>Create Org</div>
                 </Link>
+                <Link to={paths.create_user}>
+                    <div className={`text-nav-link${isActive(paths.create_user) ? ' active' : ''}`}>Create User</div>
+                </Link>
                 {user ? (
                     <>
                         <Link to={paths.kudos}>
                             <div className={`text-nav-link${isActive(paths.kudos) ? ' active' : ''}`}>Kudos</div>
                         </Link>
                         
-                        <Link to={paths.create_user}>
-                            <div className={`text-nav-link${isActive(paths.create_user) ? ' active' : ''}`}>Create User</div>
-                        </Link>
+                        
                         
                         <div className="text-nav-link" onClick={handleLogout} style={{ cursor: "pointer" }}>
                             Logout
