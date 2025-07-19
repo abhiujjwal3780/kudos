@@ -15,7 +15,7 @@ const KudosCard = ({
         <div className="kudos-card">
             <div className="kudos-card-header">
                 <div className="kudos-sender">
-                    <span role="img" aria-label="sender">🙌</span> {sender}
+                    <span role="img" aria-label="sender">🙌</span> {sender.email}
                 </div>
                 <div className="kudos-points">
                     <span className="points-badge">{points} ⭐</span>
@@ -23,7 +23,7 @@ const KudosCard = ({
             </div>
             <div className="kudos-card-body">
                 <div className="kudos-receiver">
-                    <span role="img" aria-label="receiver">🎉</span> To: <b>{receiver}</b>
+                    <span role="img" aria-label="receiver">🎉</span> To: <b>{receiver.email}</b>
                 </div>
                 <div className="kudos-level-behaviour">
                     <span className="level">{level}</span>

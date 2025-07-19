@@ -1,17 +1,28 @@
 from rest_framework import serializers
-from kudos_app.models import Kudos, KudosAssignment
+from kudos_app.models import Kudos, KudosAssignment, User
 from kudos_app.constants import (
     KUDOS_STATUS_CHOICES, KUDOS_STATUS_VALUES,
     ERROR_SAME_USER, ERROR_ORG_MISMATCH, ERROR_EMPTY_MESSAGE,
     ERROR_POINTS_MIN, ERROR_SELF_KUDOS, ERROR_START_AFTER_END,
     ERROR_INVALID_STATUS, ERROR_START_REQUIRED, ERROR_END_REQUIRED
 )
+from kudos_app.api.serializers.users_serializer import UserSimpleSerializer
 
 class KudosSerializer(serializers.ModelSerializer):
+    sender = UserSimpleSerializer(read_only=True)
+    receiver = UserSimpleSerializer(read_only=True)
+
     class Meta:
         model = Kudos
-        fields = ['id', 'level', 'behaviour', 'message', 'points', 'sender', 'receiver', 'kudos_assignment', 'created_at', 'updated_at']
-        read_only_fields = ['id', 'user', 'created_at']
+        fields = ['id', 'sender', 'receiver', 'level', 'behaviour', 'message', 'points', 'created_at']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        if not instance.sender or not instance.receiver:
+            data['sender'] = None
+            data['receiver'] = None
+        return data
+
     
     def update(self, instance, validated_data):
         request = self.context.get('request')
@@ -22,7 +33,7 @@ class KudosSerializer(serializers.ModelSerializer):
     
     def get_serializer_context(self):
         context = super().get_serializer_context()
-        context['request'] = self.context['request']
+        context['request'] = self.context.get('request')
         return context
     
     
@@ -49,11 +60,19 @@ class KudosSerializer(serializers.ModelSerializer):
         if not message:
             raise serializers.ValidationError(ERROR_EMPTY_MESSAGE)
 
+        # Convert sender/receiver to User objects if they are IDs
+        if isinstance(sender, int):
+            sender = User.objects.filter(id=sender).first()
+        if isinstance(receiver, int):
+            receiver = User.objects.filter(id=receiver).first()
+
         if sender and receiver:
             if sender == receiver:
                 raise serializers.ValidationError(ERROR_SAME_USER)
-            if sender.organization != receiver.organization:
+            if sender.organization_id != receiver.organization_id:
                 raise serializers.ValidationError(ERROR_ORG_MISMATCH)
+        if sender is None or receiver is None:
+            raise serializers.ValidationError("Sender or receiver does not exist.")
 
         return attrs
 
@@ -67,14 +86,28 @@ class KudosSerializer(serializers.ModelSerializer):
 
 
 class KudosAssignmentSerializer(serializers.ModelSerializer):
+    sender = UserSimpleSerializer(read_only=True)
+    receiver = UserSimpleSerializer(read_only=True)
+    organization = serializers.StringRelatedField(read_only=True)  # or use a custom serializer if you want more org details
+
     class Meta:
         model = KudosAssignment
-        fields = ['id', 'sender', 'receiver', 'organization', 'assignment_start_date', 'assignment_end_date', 'status']
+        fields = [
+            'id', 'sender', 'receiver', 'organization',
+            'assignment_start_date', 'assignment_end_date', 'status'
+        ]
         read_only_fields = ['id', 'created_at', 'updated_at']
 
     def validate(self, attrs):
         sender = attrs.get('sender')
         receiver = attrs.get('receiver')
+
+        # Convert sender/receiver to User objects if they are IDs
+        if isinstance(sender, int):
+            sender = User.objects.filter(id=sender).first()
+        if isinstance(receiver, int):
+            receiver = User.objects.filter(id=receiver).first()
+
         if sender and receiver:
             if sender == receiver:
                 raise serializers.ValidationError(ERROR_SAME_USER)
@@ -90,3 +123,4 @@ class KudosAssignmentSerializer(serializers.ModelSerializer):
         if 'assignment_end_date' in attrs and not attrs['assignment_end_date']:
             raise serializers.ValidationError(ERROR_END_REQUIRED)
         return super().validate(attrs)
+

@@ -12,7 +12,7 @@ class KudosListCreateView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         org_id = self.kwargs['org_id']
-        return Kudos.objects.filter(organization_id=org_id)
+        return Kudos.objects.filter(organization_id=org_id).select_related('sender', 'receiver')
 
     def list(self, request, *args, **kwargs):
         queryset = self.get_queryset()

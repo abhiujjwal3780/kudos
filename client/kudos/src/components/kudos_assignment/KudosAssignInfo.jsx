@@ -25,7 +25,7 @@ const KudosAssignInfo = ({ periodLabel = "This Week" }) => {
                 method: "GET",
                 params: { sender: user.id }, // If your API supports filtering by sender
             });
-            if (Array.isArray(data)) setAssignments(data.filter(a => a.sender === user.id));
+            if (Array.isArray(data)) setAssignments(data.filter(a => a.sender.id === user.id));
             setLoading(false);
         };
         fetchAssignments();
@@ -48,7 +48,7 @@ const KudosAssignInfo = ({ periodLabel = "This Week" }) => {
                             </div>
                             <div className="assignment-info">
                                 <div>
-                                    <span className="assignment-label">To:</span> <b>{a.receiver_name || a.receiver}</b>
+                                    <span className="assignment-label">To:</span> <b>{a.sender.email }</b>
                                 </div>
                                 <div>
                                     <span className="assignment-label">Period:</span> {a.assignment_start_date} --- {a.assignment_end_date}
