@@ -14,8 +14,8 @@ from kudos_app.constants import (
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'organization', 'manager', 'password']
-        read_only_fields = ['id', 'is_active', 'is_staff']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'is_active', 'is_staff', 'is_superuser', 'organization', 'manager', 'password']
+        read_only_fields = ['id']
 
 
     def create(self, validated_data):

@@ -16,7 +16,7 @@ const CreateUser = () => {
         manager: "",
         organization: user?.organization, // Use the organization from the context
         is_active: true,
-        is_staff: false,
+        is_staff: true,
         is_superuser: false,
     });
     const [error, setError] = useState("");
