@@ -14,7 +14,7 @@ const CreateUser = () => {
         last_name: "",
         password: "",
         manager: "",
-        organization: user.organization, // Use the organization from the context
+        organization: user?.organization, // Use the organization from the context
         is_active: true,
         is_staff: false,
         is_superuser: false,
@@ -116,6 +116,7 @@ const CreateUser = () => {
                         onChange={handleChange}
                     />
                 </div>
+                
                 <div className="form-group">
                     <label htmlFor="password">Password<span style={{color: "#d32f2f"}}>*</span></label>
                     <input
@@ -128,14 +129,26 @@ const CreateUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="manager">Manager (User ID)<span style={{color: "#d32f2f"}}>*</span></label>
+                    <label htmlFor="org">Organization (Org Id)<span style={{color: "#d32f2f"}}>*</span></label>
+                    <input
+                        type="text"
+                        id="organization"
+                        name="organization"
+                        value={form.organization}
+                        onChange={handleChange}
+                        required
+                        
+                    />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="manager">Manager (User ID)</label>
                     <input
                         type="text"
                         id="manager"
                         name="manager"
                         value={form.manager}
                         onChange={handleChange}
-                        required
+                        
                     />
                 </div>
                 <div className="form-group">
