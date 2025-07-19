@@ -28,7 +28,7 @@ const CreateKudosAssignment = () => {
             setError("Please fill all required fields.");
             return;
         }
-        if (form.sender  || form.receiver ) {
+        if (form.sender  == form.receiver ) {
             setError("Sender and receiver can't be same");
             return;
         }
@@ -60,7 +60,7 @@ const CreateKudosAssignment = () => {
             {success && <div className="success-message">{success}</div>}
             <form className="create-kudos-assignment-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="sender">Seceiver (User ID)<span style={{color: "#d32f2f"}}>*</span></label>
+                    <label htmlFor="sender">Sender (User ID)<span style={{color: "#d32f2f"}}>*</span></label>
                     <input
                         type="text"
                         id="sender"
