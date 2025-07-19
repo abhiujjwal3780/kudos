@@ -98,7 +98,7 @@ const CreateUser = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="first_name">First Name<span style={{color: "#d32f2f"}}></span></label>
+                    <label htmlFor="first_name">First Name<span style={{color: "#d32f2f"}}>*</span></label>
                     <input
                         type="text"
                         id="first_name"
