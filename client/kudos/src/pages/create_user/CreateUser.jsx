@@ -40,13 +40,13 @@ const CreateUser = () => {
             !form.username.trim() ||
             !form.email.trim() ||
             !form.password.trim() ||
-            !form.manager.trim()
+            !form.organization.trim()
         ) {
             setError("Please fill all required fields.");
             return;
         }
         const { data, error: apiError } = await callApi({
-            url: API_ENDPOINTS.USERS(user.organization),
+            url: API_ENDPOINTS.USERS(user?.organization || form.organization) ,
             method: "POST",
             body: form,
         });
