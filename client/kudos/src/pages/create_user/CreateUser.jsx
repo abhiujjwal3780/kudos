@@ -40,7 +40,7 @@ const CreateUser = () => {
             !form.username.trim() ||
             !form.email.trim() ||
             !form.password.trim() ||
-            !form.organization.trim()
+            !form.organization
         ) {
             setError("Please fill all required fields.");
             return;
