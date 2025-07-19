@@ -7,6 +7,7 @@ const CreateKudosAssignment = () => {
     const { user } = useContext(UserContext);
     const { callApi } = useApiQuery();
     const [form, setForm] = useState({
+        sender: "",
         receiver: "",
         assignment_start_date: "",
         assignment_end_date: "",
@@ -22,8 +23,13 @@ const CreateKudosAssignment = () => {
         e.preventDefault();
         setError("");
         setSuccess("");
-        if (!form.receiver || !form.assignment_start_date || !form.assignment_end_date) {
+        
+        if (!form.sender  || !form.receiver || !form.assignment_start_date || !form.assignment_end_date) {
             setError("Please fill all required fields.");
+            return;
+        }
+        if (form.sender  || form.receiver ) {
+            setError("Sender and receiver can't be same");
             return;
         }
         const { data, error: apiError } = await callApi({
@@ -31,13 +37,13 @@ const CreateKudosAssignment = () => {
             method: "POST",
             body: {
                 ...form,
-                sender: user.id,
                 organization: user.organization,
             },
         });
         if (data && data.id) {
             setSuccess("Kudos assignment created successfully!");
             setForm({
+                sender: "",
                 receiver: "",
                 assignment_start_date: "",
                 assignment_end_date: "",
@@ -53,6 +59,19 @@ const CreateKudosAssignment = () => {
             {error && <div className="error-message">{error}</div>}
             {success && <div className="success-message">{success}</div>}
             <form className="create-kudos-assignment-form" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="sender">Seceiver (User ID)<span style={{color: "#d32f2f"}}>*</span></label>
+                    <input
+                        type="text"
+                        id="sender"
+                        name="sender"
+                        value={form.sender}
+                        onChange={handleChange}
+                        autoComplete="off"
+                        placeholder="Enter sender user ID"
+                        required
+                    />
+                </div>
                 <div className="form-group">
                     <label htmlFor="receiver">Receiver (User ID)<span style={{color: "#d32f2f"}}>*</span></label>
                     <input
